@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuarios</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Usuarios</h1>
+
+        <a href="/add" class="btn btn-add">Agregar Usuario</a>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido Paterno</th>
+                    <th>Apellido Materno</th>
+                    <th>Escuela</th> 
+                    <th>Carrera</th>
+                    <th>Teléfono</th>
+                    <th>Correo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.forEach(function(user) { %>
+                    <tr>
+                        <td><%= user.nombre %></td>
+                        <td><%= user.apellido_paterno %></td>
+                        <td><%= user.apellido_materno %></td>
+                        <td><%= user.escuela %></td> 
+                        <td><%= user.carrera %></td>
+                        <td><%= user.telefono %></td>
+                        <td><%= user.correo %></td>
+                        <td>
+                            <a href="/edit/<%= user.id %>" class="btn btn-edit">Editar</a>
+                            <a href="/delete/<%= user.id %>" class="btn btn-delete">Eliminar</a>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
